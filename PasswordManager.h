@@ -1,20 +1,18 @@
-#include <stdio.h>
-#include <iostream>
-#include <string.h>
-#include <iomanip>
-#include <fstream>
+#ifndef PASSWORDMANAGER_H
+#define PASSWORDMANAGER_H
 using namespace std;
 
 class PasswordManager {
     public:
         string username;
         string EncryptedPassword;
+        PasswordManager();
         PasswordManager(string, string);
         void setUsername(string);
         void setEncryptedPassword(string);
-        string getUsername() const {return username;};
-        string getEncryptedPassword() const {return EncryptedPassword;};
-        void setNewPassword(string);
+        string getUsername();
+        string getEncryptedPassword();
+        bool setNewPassword(string);
         bool authenticate(string);
 
 
@@ -25,3 +23,5 @@ class PasswordManager {
 
         
 };
+
+#endif
