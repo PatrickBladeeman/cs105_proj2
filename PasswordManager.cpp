@@ -8,11 +8,6 @@ using namespace std;
 
 
 
-
-
-
-//string username;
-//string encryptedPassword;
 string encrypt(string);
 PasswordManager::PasswordManager() {
     username = "";
@@ -39,13 +34,16 @@ bool PasswordManager::setNewPassword(string newPwd) {
     return false;
 }
 bool PasswordManager::authenticate(string s) {
+    // cout << "authenticating" << endl;
+    // cout << encrypt(s) << endl;
+    // cout << encryptedPassword << endl;
     return (encryptedPassword.compare(encrypt(s)) == 0);
 }
 
 string PasswordManager::encrypt(string s) {
-    string newEncrypted = "";
+   
     for (int i = 0; i < s.length(); i++) {
-        newEncrypted[i] = ((s[i] - 33) + 25) % 94 + 33;
+        s[i] = ((s[i] - 33) + 25) % 94 + 33;
     }
     return s;
 }
@@ -61,9 +59,11 @@ bool PasswordManager::meetsCriteria(string s) {
         } else if (islower(s[i])) {
             lowerCheck++;
         } else if (isdigit(s[i])) {
-
+            digitCheck++;
         }
     }
+    // cout << "in meetscriteria" << endl;
+    // cout << "len" << lenCheck << "  upper" << upperCheck << "  lower" << lowerCheck << "  digit" << digitCheck << endl;
     if (lenCheck && upperCheck >= 1 && lowerCheck >= 1 & digitCheck >= 1) {
         return true;
     }
