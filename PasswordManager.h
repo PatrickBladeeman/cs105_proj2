@@ -5,7 +5,7 @@ using namespace std;
 class PasswordManager {
     public:
         string username;
-        string EncryptedPassword;
+        string encryptedPassword;
         PasswordManager();
         PasswordManager(string, string);
         void setUsername(string);
@@ -17,7 +17,6 @@ class PasswordManager {
 
 
     private:
-        string password;
         string encrypt(string);
         bool meetsCriteria(string);
 

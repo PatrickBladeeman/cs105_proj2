@@ -11,8 +11,8 @@ using namespace std;
 
 
 
-string username;
-string encryptedPassword;
+//string username;
+//string encryptedPassword;
 string encrypt(string);
 PasswordManager::PasswordManager() {
     username = "";
@@ -42,9 +42,6 @@ bool PasswordManager::authenticate(string s) {
     return (encryptedPassword.compare(encrypt(s)) == 0);
 }
 
-
-
-string password;
 string PasswordManager::encrypt(string s) {
     string newEncrypted = "";
     for (int i = 0; i < s.length(); i++) {
